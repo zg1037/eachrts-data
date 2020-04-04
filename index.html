@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据可视化</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/flexible.js"></script>
+</head>
+<body>
+
+<!--头部-->
+<header>
+    <h1>车联网数据可视化</h1>
+    <div class="showTime"></div>
+</header>
+
+<!--页面主体-->
+<section class="mianbox">
+  <div class="column">1</div>
+  <div class="column">2</div>
+  <div class="column">3</div>
+</section>
+
+
+<script>
+    var t = null;
+    t = setTimeout(time, 1000);
+
+    function time() {
+        clearTimeout(t);/*清除定时器*/
+        var dt = new Date();
+
+        const y = dt.getFullYear()
+        const mt = (dt.getMonth() + 1 + '').padStart(2, '0');  /* 不足两位用0填充 */
+        const d = (dt.getDate() + '').padStart(2, '0');
+
+        const hh = (dt.getHours() + '').padStart(2, '0');
+        const mm = (dt.getMinutes() + '').padStart(2, '0');
+        const ss = (dt.getSeconds() + '').padStart(2, '0');
+
+
+        document.querySelector(".showTime").innerHTML = "当前时间：" + y + "年" + mt + "月" + d + "日" + hh + "时" + mm + "分" + ss + "秒";
+        t = setTimeout(time, 1000);   // 设定定时器，循环进行
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: url("../images/bg.jpg") no-repeat top center;
+  line-height: 1.15;
+}
+//头部
+header{
+  height: 1.5625rem;
+  background: url("../images/head_bg.png") no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  h1{
+    font-size: 0.59375rem;
+    color: #fff;
+    text-align: center;
+    line-height: 1.25rem;
+  }
+  .showTime{
+    letter-spacing: 0.015625rem;
+    position: absolute;
+    right: 0.76875rem;
+    top: 0;
+    line-height: 1.171875rem;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.3125rem;
+  }
+}
+//主体
+.mianbox{
+  min-width: 1024px;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0.15625rem 0.15625rem 0 0.15625rem;
+  display: flex;
+  background: pink;
+  .column{
+    flex: 3;
+  }
+  .column:nth-child(2){
+    flex: 5;
+  }
+}
+
+
