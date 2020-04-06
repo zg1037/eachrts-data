@@ -139,7 +139,8 @@ header {
 }
 
 
-//中间模块布局
+//中间模块
+//数字模块
 .num {
   background: rgba(101, 132, 226, 0.1);
   padding: 0.234375rem;
@@ -198,16 +199,85 @@ header {
   .num-bd {
     ul {
       display: flex;
-      li{
+
+      li {
         flex: 1;
-        color: rgba(255,255,255,0.7);
+        color: rgba(255, 255, 255, 0.7);
         text-align: center;
         font-size: 0.28125rem;
         height: 0.625rem;
         line-height: 0.625rem;
-        padding-top: 0.15625rem ;
+        padding-top: 0.15625rem;
       }
     }
   }
 }
 
+//地图
+.map {
+  height: 12.65625rem;
+  position: relative;
+
+  .ball {
+    width: 8.09375rem;
+    height: 8.09375rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url("../images/map.png") no-repeat;
+    background-size: 100% 100%;
+    opacity: .3;
+  }
+
+  .map2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10.046875rem;
+    height: 10.046875rem;
+    background: url("../images/lbx.png") no-repeat;
+    background-size: 100% 100%;
+    animation: rotate1 15s linear infinite;
+    opacity: .6;
+  }
+
+  .map3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8.84375rem;
+    height: 8.84375rem;
+    background: url("../images/jt.png") no-repeat;
+    background-size: 100% 100%;
+    animation: rotate2 15s linear infinite;
+    opacity: .6;
+  }
+  .chart{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: pink;
+    width: 100%;
+    height: 12.65625rem;
+  }
+}
+
+@keyframes rotate1 {
+  from {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes rotate2 {
+  from {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
