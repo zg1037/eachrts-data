@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+li {
+  list-style: none;
+}
+
+//声明字体
+@font-face {
+  font-family: electonFont;
+  src: url("../font/DS-DIGIT.TTF");
+}
+
 body {
   background: url("../images/bg.jpg") no-repeat top center;
   line-height: 1.15;
@@ -48,19 +58,20 @@ header {
 
   .column:nth-child(2) {
     flex: 5;
+    margin: 0 0.15625rem 0.234375rem;
   }
 }
 
-//公告面板
+//公告面板,可以复用左右布局
 .panel {
   height: 4.84375rem;
   border: 1px solid rgba(25, 186, 139, 0.17);
-  background: url("../images/line(1).png") rgba(255,255,255,0.03);
+  background: url("../images/line(1).png") rgba(255, 255, 255, 0.03);
   padding: 0 0.234375rem 0.625rem;
   margin-bottom: 0.234375rem;
   position: relative;
   //利用伪元素添加上面边框的角
-  &::before{
+  &::before {
     position: absolute;
     top: 0;
     left: 0;
@@ -70,7 +81,8 @@ header {
     border-top: 2px solid #02a6b5;
     content: "";
   }
-  &::after{
+
+  &::after {
     position: absolute;
     top: 0;
     right: 0;
@@ -80,13 +92,15 @@ header {
     border-top: 2px solid #02a6b5;
     content: "";
   }
+
   //利下面边框的角
-  .panel-footer{
+  .panel-footer {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    &::before{
+
+    &::before {
       position: absolute;
       bottom: 0;
       left: 0;
@@ -96,7 +110,8 @@ header {
       border-bottom: 2px solid #02a6b5;
       content: "";
     }
-    &::after{
+
+    &::after {
       position: absolute;
       bottom: 0;
       right: 0;
@@ -105,6 +120,93 @@ header {
       border-right: 2px solid #02a6b5;
       border-bottom: 2px solid #02a6b5;
       content: "";
+    }
+  }
+
+  h2 {
+    height: 0.75rem;
+    color: #ffffff;
+    line-height: 0.75rem;
+    text-align: center;
+    font-size: 0.3125rem;
+
+  }
+
+  .chart {
+    height: 3.75rem;
+    background: pink;
+  }
+}
+
+
+//中间模块布局
+.num {
+  background: rgba(101, 132, 226, 0.1);
+  padding: 0.234375rem;
+
+  .num-hd {
+    border: 1px solid rgba(25, 186, 139, 0.17);
+    position: relative;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      width: 30px;
+      height: 10px;
+      border-top: 2px solid #02a6b5;
+      border-left: 2px solid #02a6b5;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      content: "";
+      width: 30px;
+      height: 10px;
+      border-bottom: 2px solid #02a6b5;
+      border-right: 2px solid #02a6b5;
+    }
+
+    ul {
+      display: flex;
+
+      li {
+        flex: 1;
+        height: 1.25rem;
+        font-size: 1.09375rem;
+        color: #ffeb7b;
+        text-align: center;
+        font-family: electonFont;
+        position: relative;
+      }
+
+      li:nth-child(1)::after {
+        content: "";
+        position: absolute;
+        top: 25%;
+        right: 0;
+        height: 50%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+
+  .num-bd {
+    ul {
+      display: flex;
+      li{
+        flex: 1;
+        color: rgba(255,255,255,0.7);
+        text-align: center;
+        font-size: 0.28125rem;
+        height: 0.625rem;
+        line-height: 0.625rem;
+        padding-top: 0.15625rem ;
+      }
     }
   }
 }

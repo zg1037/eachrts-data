@@ -3,6 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+li {
+  list-style: none;
+}
+@font-face {
+  font-family: electonFont;
+  src: url("../font/DS-DIGIT.TTF");
+}
 body {
   background: url("../images/bg.jpg") no-repeat top center;
   line-height: 1.15;
@@ -40,6 +47,7 @@ header .showTime {
 }
 .mianbox .column:nth-child(2) {
   flex: 5;
+  margin: 0 0.15625rem 0.234375rem;
 }
 .panel {
   height: 4.84375rem;
@@ -94,5 +102,77 @@ header .showTime {
   border-right: 2px solid #02a6b5;
   border-bottom: 2px solid #02a6b5;
   content: "";
+}
+.panel h2 {
+  height: 0.75rem;
+  color: #ffffff;
+  line-height: 0.75rem;
+  text-align: center;
+  font-size: 0.3125rem;
+}
+.panel .chart {
+  height: 3.75rem;
+  background: pink;
+}
+.num {
+  background: rgba(101, 132, 226, 0.1);
+  padding: 0.234375rem;
+}
+.num .num-hd {
+  border: 1px solid rgba(25, 186, 139, 0.17);
+  position: relative;
+}
+.num .num-hd::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 30px;
+  height: 10px;
+  border-top: 2px solid #02a6b5;
+  border-left: 2px solid #02a6b5;
+}
+.num .num-hd::after {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  content: "";
+  width: 30px;
+  height: 10px;
+  border-bottom: 2px solid #02a6b5;
+  border-right: 2px solid #02a6b5;
+}
+.num .num-hd ul {
+  display: flex;
+}
+.num .num-hd ul li {
+  flex: 1;
+  height: 1.25rem;
+  font-size: 1.09375rem;
+  color: #ffeb7b;
+  text-align: center;
+  font-family: electonFont;
+  position: relative;
+}
+.num .num-hd ul li:nth-child(1)::after {
+  content: "";
+  position: absolute;
+  top: 25%;
+  right: 0;
+  height: 50%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.num .num-bd ul {
+  display: flex;
+}
+.num .num-bd ul li {
+  flex: 1;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  font-size: 0.28125rem;
+  height: 0.625rem;
+  line-height: 0.625rem;
+  padding-top: 0.15625rem;
 }
 /*# sourceMappingURL=index.css.map */
