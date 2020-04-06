@@ -4,46 +4,108 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   background: url("../images/bg.jpg") no-repeat top center;
   line-height: 1.15;
 }
+
 //头部
-header{
+header {
   height: 1.5625rem;
   background: url("../images/head_bg.png") no-repeat;
   background-size: 100% 100%;
   position: relative;
-  h1{
+
+  h1 {
     font-size: 0.59375rem;
     color: #fff;
     text-align: center;
     line-height: 1.25rem;
   }
-  .showTime{
+
+  .showTime {
     letter-spacing: 0.015625rem;
     position: absolute;
     right: 0.76875rem;
     top: 0;
     line-height: 1.171875rem;
-    color: rgba(255,255,255,0.7);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 0.3125rem;
   }
 }
+
 //主体
-.mianbox{
+.mianbox {
   min-width: 1024px;
   max-width: 1920px;
   margin: 0 auto;
   padding: 0.15625rem 0.15625rem 0 0.15625rem;
   display: flex;
-  background: pink;
-  .column{
+
+  .column {
     flex: 3;
   }
-  .column:nth-child(2){
+
+  .column:nth-child(2) {
     flex: 5;
   }
 }
 
+//公告面板
+.panel {
+  height: 4.84375rem;
+  border: 1px solid rgba(25, 186, 139, 0.17);
+  background: url("../images/line(1).png") rgba(255,255,255,0.03);
+  padding: 0 0.234375rem 0.625rem;
+  margin-bottom: 0.234375rem;
+  position: relative;
+  //利用伪元素添加上面边框的角
+  &::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid #02a6b5;
+    border-top: 2px solid #02a6b5;
+    content: "";
+  }
+  &::after{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid #02a6b5;
+    border-top: 2px solid #02a6b5;
+    content: "";
+  }
+  //利下面边框的角
+  .panel-footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    &::before{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      border-left: 2px solid #02a6b5;
+      border-bottom: 2px solid #02a6b5;
+      content: "";
+    }
+    &::after{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 10px;
+      height: 10px;
+      border-right: 2px solid #02a6b5;
+      border-bottom: 2px solid #02a6b5;
+      content: "";
+    }
+  }
+}
 
