@@ -168,4 +168,88 @@
     window.addEventListener("resize", function () {
         myChart.resize();
     })
-})()
+})();
+//折线图1
+(function () {
+    var myChart = echarts.init(document.querySelector(".line .chart"));
+    var option = {
+        color: ["#00f2f1", "#ed3f35"],
+        tooltip: {
+            trigger: 'axis'
+        },
+        legend: {
+            textStyle: {
+                color: "#4c9bfb",
+            },
+            right: "10%"
+        },
+        grid: {
+            top: "20%",
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            show: true,
+            borderColor: "#012f4a",
+            containLabel: true
+        },
+        xAxis: {
+            type: 'category',
+            boundaryGap: false,  //去除轴间距
+            data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月',
+                '8月', '9月', '10月', '11月', '12月'],
+            //修改刻度标签
+            axisLabel: {
+                color: "#4c9bfb",
+                fontSize: 12
+            },
+            //不显示x坐标轴样式
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            }
+        },
+        yAxis: {
+            type: 'value',
+            //修改刻度标签
+            axisLabel: {
+                color: "#4c9bfb",
+                fontSize: 12
+            },
+            //不显示x坐标轴样式
+            axisLine: {
+                show: false
+            },
+            axisTick: {
+                show: false
+            },
+            // y轴分割线颜色
+            splitLine: {
+                lineStyle: {
+                    color: "#012f4a"
+                }
+            }
+        },
+        series: [
+            {
+                smooth: true,
+                name: '月销售额',
+                type: 'line',
+                stack: '总量',
+                data: [120, 232, 101, 434, 90, 230, 210,234,555,456,873,990]
+            },
+            {
+                smooth: true,
+                name: '季度销售额',
+                type: 'line',
+                stack: '总量',
+                data: [220, 82, 191, 334, 190, 330, 310,434, 90, 230, 210,234]
+            }
+        ]
+    };
+    myChart.setOption(option);
+    window.addEventListener("resize", function () {
+        myChart.resize();
+    })
+})();
