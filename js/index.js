@@ -278,7 +278,7 @@
             {
                 type: 'category',
                 boundaryGap: false,
-                data: ['01',"02","03",'04',"05","06",'07',"08","09",'10',"11","12",'13',"14","15"],
+                data: ['01', "02", "03", '04', "05", "06", '07', "08", "09", '10', "11", "12", '13', "14", "15"],
                 //修改刻度标签
                 axisLabel: {
                     color: "rgba(255,255,255,.6)",
@@ -351,13 +351,13 @@
                 //线上圆点 拐点配置
                 symbol: "circle",
                 symbolSize: 7,
-                showSymbol:false,
+                showSymbol: false,
                 itemStyle: {
                     color: "#0184d5",
                     borderColor: "rgba(221, 220, 107, .1)",
                     borderWidth: 12
                 },
-                data: [120, 132, 101, 134, 90, 230, 210,220, 182, 191, 234, 290, 330, 310,123],
+                data: [120, 132, 101, 134, 90, 230, 210, 220, 182, 191, 234, 290, 330, 310, 123],
                 //单独修改线的颜色
                 lineStyle: {
                     color: "#0184d5",
@@ -392,7 +392,7 @@
                 },
                 symbol: "circle",
                 symbolSize: 7,
-                showSymbol:false,
+                showSymbol: false,
                 itemStyle: {
                     normal: {
                         color: "#00d887",
@@ -400,10 +400,61 @@
                         borderWidth: 12
                     }
                 },
-                data: [220, 182, 191, 234, 290, 330, 310,120, 132, 101, 134, 90, 230, 210,220,123],
+                data: [220, 182, 191, 234, 290, 330, 310, 120, 132, 101, 134, 90, 230, 210, 220, 123],
 
             }
 
+        ]
+    };
+    myChart.setOption(option);
+    window.addEventListener("resize", function () {
+        myChart.resize();
+    })
+})();
+//第一个饼图
+(function () {
+    var myChart = echarts.init(document.querySelector(".pie .chart"));
+    var option = {
+        color:["#065aab","#066eab","#0682ab","#0696ab","#06afab"],
+        tooltip: {
+            trigger: 'item',
+            formatter: '{a} <br/>{b}: {c} ({d}%)'
+        },
+        legend: {
+            bottom: "0%",
+            itemWidth: 10,
+            itemHeight: 10,
+            textStyle: {
+                color: "rgba(255,255,255,.5)",
+                fontSize: "12"
+            },
+            data: ['安徽', '湖北', '湖南', '浙江',"上海"]
+        },
+        series: [
+            {
+                name: '地区分布',
+                type: 'pie',
+                //修改内圆半径和外园半径，百度比是相对于容器的
+                radius: ['40%', '60%'],
+                //设置饼图的位置
+                center: ["50%", "50%"],
+
+                avoidLabelOverlap: false,
+                label: {
+                    show: false,
+                    position: 'center'
+                },
+                labelLine: {
+                    show: false
+                },
+                data: [
+                    {value: 335, name: '安徽'},
+                    {value: 310, name: '湖北'},
+                    {value: 234, name: '湖南'},
+                    {value: 135, name: '浙江'},
+                    {value: 935, name: '上海'}
+                ]
+            }
         ]
     };
     myChart.setOption(option);
