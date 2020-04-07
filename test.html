@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .right {
+            position: relative;
+            width: 200px;
+            height: 100px;
+            overflow: hidden;
+            /*background: red;*/
+        }
+
+        .rightcircle {
+            width: 160px;
+            height: 160px;
+            border: 20px solid transparent;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-top: 20px solid green;
+            border-right: 20px solid green;
+            -webkit-transform: rotate(-135deg);
+            -moz-transform: rotate(-135deg);
+            -o-transform: rotate(-135deg);
+            transform: rotate(-45deg); /* 旋转-45度 */
+            z-index: 55;
+            animation: circle_right 2s linear forwards;
+        }
+
+        .Allcicle {
+            width: 160px;
+            height: 160px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 20px solid #ccc;
+            border-radius: 50%;
+
+        }
+
+        .show {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 30px;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="right">
+    <div class="rightcircle"></div>
+    <div class="Allcicle"></div>
+    <div class="show"></div>
+</div>
+
+
+</body>
+<script>
+    getTime(70);
+
+    function getTime(total) {
+        var rightcircle = document.getElementsByClassName('rightcircle')[0];
+        console.log(rightcircle.style);
+        console.log(rightcircle);
+        document.getElementsByClassName('show')[0].innerHTML = total + "%";
+
+
+        if (total <= 100) {
+            rightcircle.style.cssText = "transform: rotate(" + (-225 + 180 * (total / 100)) + "deg)";
+        }
+
+    }
+
+
+</script>
+</html>
