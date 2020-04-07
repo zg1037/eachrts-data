@@ -110,6 +110,18 @@ header .showTime {
   line-height: 0.75rem;
   text-align: center;
   font-size: 0.3125rem;
+  position: relative;
+}
+.panel h2 a {
+  color: #ffffff;
+  font-size: 18px;
+  position: absolute;
+  top: 4px;
+  right: 10px;
+}
+.panel h2 a:nth-child(1) {
+  position: absolute;
+  right: 70px;
 }
 .panel .chart {
   height: 3.75rem;

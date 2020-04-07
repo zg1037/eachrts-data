@@ -237,15 +237,173 @@
                 name: '月销售额',
                 type: 'line',
                 stack: '总量',
-                data: [120, 232, 101, 434, 90, 230, 210,234,555,456,873,990]
+                data: [120, 232, 101, 434, 90, 230, 210, 234, 555, 456, 873, 990]
             },
             {
                 smooth: true,
                 name: '季度销售额',
                 type: 'line',
                 stack: '总量',
-                data: [220, 82, 191, 334, 190, 330, 310,434, 90, 230, 210,234]
+                data: [220, 82, 191, 334, 190, 330, 310, 434, 90, 230, 210, 234]
             }
+        ]
+    };
+    myChart.setOption(option);
+    window.addEventListener("resize", function () {
+        myChart.resize();
+    })
+})();
+// 第二个折线图
+(function () {
+    var myChart = echarts.init(document.querySelector(".line2 .chart"));
+    var option = {
+        tooltip: {
+            trigger: 'axis',
+        },
+        legend: {
+            top: "0%",
+            textStyle: {
+                color: "rgba(255,255,255,.5)",
+                fontSize: "12"
+            }
+        },
+        grid: {
+            left: '10',
+            top: "30",
+            right: '10',
+            bottom: '10',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type: 'category',
+                boundaryGap: false,
+                data: ['01',"02","03",'04',"05","06",'07',"08","09",'10',"11","12",'13',"14","15"],
+                //修改刻度标签
+                axisLabel: {
+                    color: "rgba(255,255,255,.6)",
+                    fontSize: 12
+                },
+                //不显示x坐标轴样式
+                axisLine: {
+                    lineStyle: {
+                        color: "rgba(255,255,255,.2)"
+                    }
+                },
+                axisTick: {
+                    show: false
+                }
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                //修改刻度标签
+                axisLabel: {
+                    color: "rgba(255,255,255,.6)",
+                    fontSize: 12
+                },
+                //不显示x坐标轴样式
+                axisLine: {
+                    lineStyle: {
+                        color: "rgba(255,255,255,.1)"
+                    }
+                },
+                axisTick: {
+                    show: false
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: "rgba(255,255,255,.1)"
+                    }
+                }
+
+            }
+        ],
+        series: [
+            {
+                smooth: true,
+                name: '隐藏风险',
+                type: 'line',
+                stack: '总量',
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(
+                            0,
+                            0,
+                            0,
+                            1,
+                            [
+                                {
+                                    offset: 0,
+                                    color: "rgba(1, 132, 213, 0.4)"
+                                },
+                                {
+                                    offset: 0.8,
+                                    color: "rgba(1, 132, 213, 0.1)"
+                                }
+                            ],
+                            false
+                        ),
+                        shadowColor: "rgba(0, 0, 0, 0.1)"
+                    }
+                },
+                //线上圆点 拐点配置
+                symbol: "circle",
+                symbolSize: 7,
+                showSymbol:false,
+                itemStyle: {
+                    color: "#0184d5",
+                    borderColor: "rgba(221, 220, 107, .1)",
+                    borderWidth: 12
+                },
+                data: [120, 132, 101, 134, 90, 230, 210,220, 182, 191, 234, 290, 330, 310,123],
+                //单独修改线的颜色
+                lineStyle: {
+                    color: "#0184d5",
+                }
+            },
+            {
+                smooth: true,
+                name: '实时风险',
+                type: 'line',
+                stack: '总量',
+                areaStyle: {
+                    normal: {
+                        color: new echarts.graphic.LinearGradient(
+                            0,
+                            0,
+                            0,
+                            1,
+                            [
+                                {
+                                    offset: 0,
+                                    color: "rgba(0, 216, 135, 0.4)"
+                                },
+                                {
+                                    offset: 0.8,
+                                    color: "rgba(0, 216, 135, 0.1)"
+                                }
+                            ],
+                            false
+                        ),
+                        shadowColor: "rgba(0, 0, 0, 0.1)"
+                    }
+                },
+                symbol: "circle",
+                symbolSize: 7,
+                showSymbol:false,
+                itemStyle: {
+                    normal: {
+                        color: "#00d887",
+                        borderColor: "rgba(221, 220, 107, .1)",
+                        borderWidth: 12
+                    }
+                },
+                data: [220, 182, 191, 234, 290, 330, 310,120, 132, 101, 134, 90, 230, 210,220,123],
+
+            }
+
         ]
     };
     myChart.setOption(option);

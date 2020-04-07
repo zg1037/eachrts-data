@@ -130,7 +130,19 @@ header {
     line-height: 0.75rem;
     text-align: center;
     font-size: 0.3125rem;
+    position: relative;
 
+    a {
+      color: #ffffff;
+      font-size: 18px;
+      position: absolute;
+      top: 4px;
+      right: 10px;
+      &:nth-child(1){
+        position: absolute;
+        right: 70px;
+      }
+    }
   }
 
   .chart {
@@ -256,7 +268,8 @@ header {
     opacity: .6;
     overflow: hidden;
   }
-  .chart{
+
+  .chart {
     position: absolute;
     top: 0;
     left: 0;
@@ -274,6 +287,7 @@ header {
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
+
 @keyframes rotate2 {
   from {
     transform: translate(-50%, -50%) rotate(0);
