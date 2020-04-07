@@ -432,20 +432,19 @@
         },
         series: [
             {
-                name: '地区分布',
+                name: '定点投入',
                 type: 'pie',
                 //修改内圆半径和外园半径，百度比是相对于容器的
                 radius: ['40%', '60%'],
                 //设置饼图的位置
-                center: ["50%", "50%"],
+                center: ["50%", "40%"],
 
                 avoidLabelOverlap: false,
                 label: {
-                    show: false,
-                    position: 'center'
+                    show: true,
                 },
                 labelLine: {
-                    show: false
+                    show: true
                 },
                 data: [
                     {value: 335, name: '安徽'},
@@ -462,3 +461,68 @@
         myChart.resize();
     })
 })();
+//第二个饼型图
+(function () {
+    var myChart = echarts.init(document.querySelector(".pie2 .chart"));
+    option = {
+        // 注意颜色写的位置
+        color: [
+            "#006cff",
+            "#60cda0",
+            "#ed8884",
+            "#ff9f7f",
+            "#0096ff",
+            "#9fe6b8",
+            "#32c5e9",
+            "#1d9dff"
+        ],
+        tooltip: {
+            trigger: 'item',
+            formatter: '{a} <br/>{b} : {c} ({d}%)'
+        },
+        legend: {
+            top:"92%",
+            itemWidth: 9,
+            itemHeight: 9,
+            textStyle: {
+                color: "rgba(255,255,255,.5)",
+                fontSize: "10"
+            }
+        },
+        // 修饰饼形图文字相关的样式 label对象
+        label: {
+            fontSize: 10
+        },
+        // 修饰引导线样式
+        labelLine: {
+            // 连接到图形的线长度
+            length: 10,
+            // 连接到文字的线长度
+            length2: 10
+        },
+        series: [
+            {
+                name: '地区分布',
+                type: 'pie',
+                radius: ["10%", "70%"],
+                //设置饼图的位置
+                center: ["50%", "49%"],
+                roseType: 'radius',
+                data: [
+                    { value: 20, name: "云南" },
+                    { value: 26, name: "北京" },
+                    { value: 24, name: "山东" },
+                    { value: 25, name: "河北" },
+                    { value: 20, name: "江苏" },
+                    { value: 25, name: "浙江" },
+                    { value: 30, name: "深圳" },
+                    { value: 42, name: "广东" }
+                ]
+            }
+        ]
+    };
+    myChart.setOption(option);
+    window.addEventListener("resize", function () {
+        myChart.resize();
+    })
+})()
