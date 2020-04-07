@@ -20,7 +20,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["路由行业", "游戏行业","教育行业", "电商行业", "金融行业", "医疗行业", "社交行业"],
+                data: ["路由行业", "游戏行业", "教育行业", "电商行业", "金融行业", "医疗行业", "社交行业"],
                 axisTick: {
                     alignWithLabel: true
                 },
@@ -69,4 +69,103 @@
         ]
     };
     myChart.setOption(option);
+    window.addEventListener("resize", function () {
+        myChart.resize();
+    })
 })();
+// 柱形图2
+(function () {
+    var myChart = echarts.init(document.querySelector(".bar2 .chart"));
+    var myColor = ["#1089E7", "#F57474", "#56D0E3", "#F8B448", "#8B78F6"];
+    var option = {
+        grid: {
+            top: "10%",
+            left: '22%',
+            bottom: '10%',
+            containLabel: false
+        },
+        //不显示x轴
+        xAxis: {
+            show: false
+        },
+        //两组y轴
+        yAxis: [{
+            type: 'category',
+            inverse: true,
+            data: ['在线设备', '离线设备', '维修设备', '行驶设备', '失效设备'],
+            // 不显示y轴和刻度
+            axisLine: {
+                show: false,
+            },
+            axisTick: {
+                show: false
+            },
+            //文字颜色
+            axisLabel: {
+                color: "#fff"
+            }
+        },
+            {
+                type: 'category',
+                inverse: true,
+                data: ['123', '478', '134', '797', '475'],
+                // 不显示y轴和刻度
+                axisLine: {
+                    show: false,
+                },
+                axisTick: {
+                    show: false
+                },
+                //文字颜色
+                axisLabel: {
+                    color: "#fff"
+                }
+            }
+        ],
+        //思路，用第一组柱子包裹第二组柱子
+        series: [
+            {
+                yAxisIndex: 0,  //设置柱子层级
+                name: '条',
+                type: 'bar',
+                data: [70, 54, 60, 78, 29],
+                //柱子改为圆角
+                itemStyle: {
+                    barBorderRadius: 20,
+                    color: function (params) {
+                        return myColor[params.dataIndex]
+                    }
+                },
+                //柱子间距和宽度
+                barCategoryGap: 50,
+                barWidth: 10,
+                //设置第一组显示数字百分比
+                label: {
+                    show: true,
+                    position: 'inside',
+                    formatter: "{c}%"   //自动把data解析为数据，
+                }
+            },
+            {
+                yAxisIndex: 1,
+                name: '框',
+                type: 'bar',
+                data: [100, 100, 100, 100, 100],
+                //柱子间距和宽度
+                barCategoryGap: 50,
+                barWidth: 15,
+                itemStyle: {
+                    color: "none",
+                    borderColor: "#00c1de",
+                    borderWidth: 3,
+                    barBorderRadius: 15
+                },
+
+            }
+        ]
+    };
+    myChart.setOption(option);
+    window.addEventListener("resize", function () {
+        myChart.resize();
+    })
+})()
